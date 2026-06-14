@@ -1,5 +1,5 @@
 package com.aitasker.repository;
 
-public class JobPostRepository {
-    
+public interface JobPostRepository {
+
 }
