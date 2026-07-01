@@ -9,7 +9,10 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class StatusChangeRequest {
-    private String reason;
-    private String feedback;
+public class ServiceAiRequest {
+    private String title;
+    private String category;
+    private Double price;
+    private String deliveryTime;
+    private String description;
 }
