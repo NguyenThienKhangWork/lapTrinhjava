@@ -62,9 +62,10 @@ public class UserService {
         return UserDTO.fromEntity(updatedUser);
     }
 
-    public List<UserDTO> getExperts() {
-        return userRepository.findByRole(UserRole.EXPERT)
-                .stream()
+    public List<UserDTO> getExperts(String skill) {
+        List<User> experts = userRepository.findByRole(UserRole.EXPERT);
+        return experts.stream()
+                .filter(u -> skill == null || (u.getSkills() != null && u.getSkills().toLowerCase().contains(skill.toLowerCase())))
                 .map(UserDTO::fromEntity)
                 .collect(Collectors.toList());
     }
