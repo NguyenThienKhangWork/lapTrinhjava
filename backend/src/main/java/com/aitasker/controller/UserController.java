@@ -38,9 +38,8 @@ public class UserController {
     }
 
     @GetMapping("/experts")
-    public ResponseEntity<List<UserDTO>> getExperts(
-            @RequestParam(required = false) String skill) {
-        List<UserDTO> experts = userService.getExperts(skill);
+    public ResponseEntity<List<UserDTO>> getExperts() {
+        List<UserDTO> experts = userService.getExperts();
         return ResponseEntity.ok(experts);
     }
 }

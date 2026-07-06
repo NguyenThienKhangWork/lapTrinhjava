@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class MessageService {
+
     private final MessageRepository messageRepository;
     private final ProjectRepository projectRepository;
     private final UserRepository userRepository;
@@ -28,10 +29,11 @@ public class MessageService {
     public MessageResponse saveMessage(Long projectId, String senderEmail, MessageRequest request) {
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() -> new ResourceNotFoundException("Project", "id", projectId));
+
         User sender = userRepository.findByEmail(senderEmail)
                 .orElseThrow(() -> new ResourceNotFoundException("User", "email", senderEmail));
 
-        //Chỉ client hoặc expert của project mới được chat
+        // Validate sender is either client or expert of this project
         if (!project.getClient().getId().equals(sender.getId()) && !project.getExpert().getId().equals(sender.getId())) {
             throw new BadRequestException("You are not part of this project's chat.");
         }
@@ -51,8 +53,6 @@ public class MessageService {
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() -> new ResourceNotFoundException("Project", "id", projectId));
 
-        //check quyền
-        //chỉ người trong project xem được lịch sử chat
         if (!project.getClient().getEmail().equals(email) && !project.getExpert().getEmail().equals(email)) {
             throw new BadRequestException("You are not authorized to view messages of this project.");
         }

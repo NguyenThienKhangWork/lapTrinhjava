@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI Tasker - Nền tảng kết nối chuyên gia AI hàng đầu với doanh nghiệp cần tự động hóa. Trợ lý thông minh tích hợp AI vào quy trình làm việc, hỗ trợ mô hình dịch vụ và dự án.">
+  <meta name="keywords" content="AI, automation, experts, marketplace, AI services, machine learning, deep learning, NLP, computer vision">
+  <title>AI Tasker — Nền Tảng Kết Nối Chuyên Gia AI & Doanh Nghiệp</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Effects -->
+  <div class="grid-bg"></div>
+  <div class="scanlines"></div>
+  <div class="particles-container"></div>
+
+  <!-- ============================================
+       Navigation
+       ============================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="nav-logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="position:relative;z-index:1">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#00f0ff" stroke-width="2" fill="none"/>
+            <path d="M2 17L12 22L22 17" stroke="#b026ff" stroke-width="2" fill="none"/>
+            <path d="M2 12L12 17L22 12" stroke="#00f0ff" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <span class="logo-text">AI TASKER</span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#features">Tính năng</a>
+        <a href="#how-it-works">Cách hoạt động</a>
+        <a href="#ai-modules">AI Modules</a>
+        <a href="#architecture">Kiến trúc</a>
+        <a href="#pricing">Giải pháp</a>
+      </div>
+
+      <div class="nav-cta">
+        <a href="#" class="btn btn-outline" id="btn-login">ĐĂNG NHẬP</a>
+        <a href="#cta" class="btn btn-primary" id="btn-start"><span>BẮT ĐẦU</span></a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       Hero Section
+       ============================================ -->
+  <section class="hero section" id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="pulse-dot"></span>
+          <span>NỀN TẢNG AI SỐ 1 VIỆT NAM</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="line">KẾT NỐI</span>
+          <span class="line">
+            <span class="gradient-text glitch" data-text="CHUYÊN GIA AI">CHUYÊN GIA AI</span>
+          </span>
+          <span class="line">VỚI DOANH NGHIỆP</span>
+        </h1>
+
+        <p class="hero-desc">
+          Không chỉ là nền tảng marketplace — AI Tasker là <strong>trợ lý thông minh</strong> tích hợp AI 
+          vào quy trình làm việc của doanh nghiệp. Tự động matching, quản lý dự án, 
+          và thanh toán an toàn qua escrow.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#cta" class="btn btn-primary btn-large btn-glow" id="hero-cta-main"><span>KHÁM PHÁ NGAY →</span></a>
+          <a href="#how-it-works" class="btn btn-outline btn-large" id="hero-cta-learn"><span>XEM CÁCH HOẠT ĐỘNG</span></a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="stat-value" data-count="2500" data-suffix="+">0</div>
+            <div class="stat-label">Chuyên gia AI</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-value" data-count="850" data-suffix="+">0</div>
+            <div class="stat-label">Doanh nghiệp</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-value" data-count="98" data-suffix="%">0</div>
+            <div class="stat-label">Tỷ lệ hài lòng</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Visual Orb -->
+    <div class="hero-visual">
+      <div class="hero-orb"></div>
+      <div class="orbit-ring">
+        <div class="orbit-dot"></div>
+      </div>
+      <div class="orbit-ring">
+        <div class="orbit-dot"></div>
+      </div>
+      <div class="orbit-ring">
+        <div class="orbit-dot"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       Ticker / Trusted By
+       ============================================ -->
+  <div class="ticker-section">
+    <p class="ticker-label">Được tin dùng bởi các doanh nghiệp hàng đầu</p>
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="dot"></span> VINGROUP</div>
+      <div class="ticker-item"><span class="dot"></span> FPT SOFTWARE</div>
+      <div class="ticker-item"><span class="dot"></span> VIETTEL AI</div>
+      <div class="ticker-item"><span class="dot"></span> MOMO</div>
+      <div class="ticker-item"><span class="dot"></span> VNG CORPORATION</div>
+      <div class="ticker-item"><span class="dot"></span> TIKI</div>
+      <div class="ticker-item"><span class="dot"></span> SHOPEE VN</div>
+      <div class="ticker-item"><span class="dot"></span> ZALOPAY</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="ticker-item"><span class="dot"></span> VINGROUP</div>
+      <div class="ticker-item"><span class="dot"></span> FPT SOFTWARE</div>
+      <div class="ticker-item"><span class="dot"></span> VIETTEL AI</div>
+      <div class="ticker-item"><span class="dot"></span> MOMO</div>
+      <div class="ticker-item"><span class="dot"></span> VNG CORPORATION</div>
+      <div class="ticker-item"><span class="dot"></span> TIKI</div>
+      <div class="ticker-item"><span class="dot"></span> SHOPEE VN</div>
+      <div class="ticker-item"><span class="dot"></span> ZALOPAY</div>
+    </div>
+  </div>
+
+  <!-- ============================================
+       Features Section
+       ============================================ -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Tại sao chọn AI Tasker</span>
+        <h2 class="section-title">Nền Tảng <span class="highlight">AI Marketplace</span> Thế Hệ Mới</h2>
+        <p class="section-subtitle mx-auto">
+          Hệ thống tích hợp AI vào quy trình làm việc — không chỉ kết nối mà còn tự động hóa toàn bộ workflow
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card reveal reveal-delay-1" id="feature-matching">
+          <div class="feature-icon">🧠</div>
+          <h3 class="feature-title">AI EXPERT MATCHING</h3>
+          <p class="feature-desc">
+            Thuật toán AI phân tích yêu cầu dự án và tự động ghép nối với chuyên gia phù hợp nhất. 
+            Tỷ lệ matching chính xác lên đến 95%.
+          </p>
+          <div class="feature-tags">
+            <span class="feature-tag">NLP</span>
+            <span class="feature-tag">ML Ranking</span>
+            <span class="feature-tag">Smart Filter</span>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card reveal reveal-delay-2" id="feature-assistant">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-title">TRỢ LÝ AI THÔNG MINH</h3>
+          <p class="feature-desc">
+            AI Job Assistant giúp doanh nghiệp viết job description chuyên nghiệp, 
+            đề xuất budget phù hợp và timeline tối ưu cho dự án.
+          </p>
+          <div class="feature-tags">
+            <span class="feature-tag" style="background:rgba(176,38,255,0.06);border-color:rgba(176,38,255,0.15);color:#b026ff">GPT-4</span>
+            <span class="feature-tag" style="background:rgba(176,38,255,0.06);border-color:rgba(176,38,255,0.15);color:#b026ff">AutoGen</span>
+            <span class="feature-tag" style="background:rgba(176,38,255,0.06);border-color:rgba(176,38,255,0.15);color:#b026ff">RAG</span>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card reveal reveal-delay-3" id="feature-security">
+          <div class="feature-icon">🔐</div>
+          <h3 class="feature-title">ESCROW & BẢO MẬT</h3>
+          <p class="feature-desc">
+            Thanh toán an toàn qua hệ thống escrow. Milestone-based delivery đảm bảo 
+            chất lượng sản phẩm trước khi thanh toán.
+          </p>
+          <div class="feature-tags">
+            <span class="feature-tag" style="background:rgba(255,0,110,0.06);border-color:rgba(255,0,110,0.15);color:#ff006e">Escrow</span>
+            <span class="feature-tag" style="background:rgba(255,0,110,0.06);border-color:rgba(255,0,110,0.15);color:#ff006e">Milestones</span>
+            <span class="feature-tag" style="background:rgba(255,0,110,0.06);border-color:rgba(255,0,110,0.15);color:#ff006e">Disputes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       How It Works
+       ============================================ -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Quy trình đơn giản</span>
+        <h2 class="section-title">Từ Ý Tưởng Đến <span class="highlight">Tự Động Hóa</span></h2>
+        <p class="section-subtitle mx-auto">
+          Chỉ 4 bước để biến nhu cầu AI của doanh nghiệp thành giải pháp hoàn chỉnh
+        </p>
+      </div>
+
+      <div class="steps-container">
+        <div class="step-card reveal reveal-delay-1" id="step-1">
+          <div class="step-number">
+            <span class="step-icon">📋</span>
+          </div>
+          <h3 class="step-title">ĐĂNG YÊU CẦU</h3>
+          <p class="step-desc">Mô tả nhu cầu AI, AI Assistant sẽ giúp bạn hoàn thiện yêu cầu chuyên nghiệp</p>
+        </div>
+
+        <div class="step-card reveal reveal-delay-2" id="step-2">
+          <div class="step-number">
+            <span class="step-icon">🤖</span>
+          </div>
+          <h3 class="step-title">AI MATCHING</h3>
+          <p class="step-desc">Hệ thống AI tự động phân tích và ghép nối với chuyên gia phù hợp nhất</p>
+        </div>
+
+        <div class="step-card reveal reveal-delay-3" id="step-3">
+          <div class="step-number">
+            <span class="step-icon">🚀</span>
+          </div>
+          <h3 class="step-title">TRIỂN KHAI</h3>
+          <p class="step-desc">Quản lý dự án theo milestones, giao tiếp real-time, review deliverables</p>
+        </div>
+
+        <div class="step-card reveal reveal-delay-4" id="step-4">
+          <div class="step-number">
+            <span class="step-icon">✅</span>
+          </div>
+          <h3 class="step-title">HOÀN THÀNH</h3>
+          <p class="step-desc">Thanh toán tự động qua escrow, đánh giá chuyên gia, tích lũy portfolio</p>
+        </div>
+      </div>
+
+      <!-- Terminal Demo -->
+      <div class="terminal-block reveal" id="terminal-demo">
+        <div class="terminal-header">
+          <div class="terminal-dot"></div>
+          <div class="terminal-dot"></div>
+          <div class="terminal-dot"></div>
+          <span class="terminal-title">ai-tasker-cli v2.0</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="terminal-prompt">❯</span>
+            <span class="terminal-cmd">aitasker search --skill "computer-vision" --budget "50M-100M VND"</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-output">⚡ Tìm thấy 23 chuyên gia phù hợp. Đang xếp hạng theo AI score...</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-output">✓ Top match: Dr. Nguyen Van A — AI Score: 97.3% — 48 dự án hoàn thành</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-output">✓ Runner-up: Tran Minh B — AI Score: 94.1% — Chuyên gia YOLOv8</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-prompt">❯</span>
+            <span class="terminal-cmd">aitasker proposal --auto-generate --project-id PRJ-2026-0431</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-output">🤖 AI đã tạo proposal tối ưu. Gửi đến client...</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-comment"># Escrow payment activated. Milestone 1/3 ready.</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-prompt">❯</span>
+            <span class="terminal-cmd"><span class="typing-cursor"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       AI Modules Section
+       ============================================ -->
+  <section class="section" id="ai-modules">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">AI-Powered Modules</span>
+        <h2 class="section-title">Hệ Thống <span class="highlight">AI Modules</span> Tích Hợp</h2>
+        <p class="section-subtitle mx-auto">
+          Trợ lý AI thông minh hỗ trợ cả doanh nghiệp và chuyên gia trong mọi giai đoạn
+        </p>
+      </div>
+
+      <div class="ai-modules-grid">
+        <!-- Module 1 -->
+        <div class="ai-module-card reveal reveal-delay-1" id="module-job-assistant">
+          <div class="ai-module-icon">🎯</div>
+          <div class="ai-module-content">
+            <h3 class="ai-module-title">AI JOB ASSISTANT</h3>
+            <p class="ai-module-desc">
+              Phân tích yêu cầu doanh nghiệp và tự động đề xuất job description chuyên nghiệp, 
+              budget tối ưu, timeline hợp lý và kỹ năng cần thiết.
+            </p>
+            <div class="ai-module-features">
+              <span class="ai-module-feature">Auto JD</span>
+              <span class="ai-module-feature">Budget Suggest</span>
+              <span class="ai-module-feature">Skill Mapping</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 2 -->
+        <div class="ai-module-card reveal reveal-delay-2" id="module-service-gen">
+          <div class="ai-module-icon">🛠️</div>
+          <div class="ai-module-content">
+            <h3 class="ai-module-title">AI SERVICE GENERATOR</h3>
+            <p class="ai-module-desc">
+              Giúp chuyên gia tự động tạo mô tả dịch vụ hấp dẫn, tối ưu hóa profile 
+              và đề xuất giá dịch vụ cạnh tranh dựa trên thị trường.
+            </p>
+            <div class="ai-module-features">
+              <span class="ai-module-feature">Auto Profile</span>
+              <span class="ai-module-feature">Price Optimizer</span>
+              <span class="ai-module-feature">SEO Boost</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 3 -->
+        <div class="ai-module-card reveal reveal-delay-3" id="module-recommendation">
+          <div class="ai-module-icon">🔗</div>
+          <div class="ai-module-content">
+            <h3 class="ai-module-title">AI RECOMMENDATION ENGINE</h3>
+            <p class="ai-module-desc">
+              Hệ thống recommendation thông minh ghép nối chuyên gia với dự án phù hợp, 
+              xếp hạng dựa trên skill, kinh nghiệm và đánh giá.
+            </p>
+            <div class="ai-module-features">
+              <span class="ai-module-feature">ML Matching</span>
+              <span class="ai-module-feature">Score Ranking</span>
+              <span class="ai-module-feature">Real-time</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Module 4 -->
+        <div class="ai-module-card reveal reveal-delay-4" id="module-analytics">
+          <div class="ai-module-icon">📊</div>
+          <div class="ai-module-content">
+            <h3 class="ai-module-title">AI ANALYTICS DASHBOARD</h3>
+            <p class="ai-module-desc">
+              Dashboard thông minh phân tích xu hướng thị trường AI, báo cáo hiệu suất dự án, 
+              và dự đoán nhu cầu tuyển dụng AI.
+            </p>
+            <div class="ai-module-features">
+              <span class="ai-module-feature">Trend Analysis</span>
+              <span class="ai-module-feature">Predictive</span>
+              <span class="ai-module-feature">Reports</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       For Clients / For Experts
+       ============================================ -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Giải pháp cho mọi đối tượng</span>
+        <h2 class="section-title">Hai Mô Hình, <span class="highlight">Một Nền Tảng</span></h2>
+        <p class="section-subtitle mx-auto">
+          Hỗ trợ cả mô hình tuyển dụng dựa trên dịch vụ và dựa trên dự án
+        </p>
+      </div>
+
+      <div class="split-section">
+        <!-- Client Card -->
+        <div class="split-card client-card reveal reveal-delay-1" id="card-client">
+          <div class="split-card-header">
+            <div class="split-card-icon">🏢</div>
+            <div>
+              <h3 class="split-card-title">DÀNH CHO DOANH NGHIỆP</h3>
+              <p class="split-card-subtitle">Businesses / Startups / Non-tech Founders</p>
+            </div>
+          </div>
+          <ul class="split-card-list">
+            <li><span class="check">▹</span> Đăng job posting với AI Assistant hỗ trợ</li>
+            <li><span class="check">▹</span> Duyệt AI Services Marketplace</li>
+            <li><span class="check">▹</span> Thuê chuyên gia theo dự án hoặc dịch vụ</li>
+            <li><span class="check">▹</span> Quản lý milestone & approve deliverables</li>
+            <li><span class="check">▹</span> Chat real-time với chuyên gia</li>
+            <li><span class="check">▹</span> Thanh toán an toàn qua Escrow</li>
+            <li><span class="check">▹</span> Xem lịch sử giao dịch & đánh giá</li>
+            <li><span class="check">▹</span> AI đề xuất chuyên gia phù hợp nhất</li>
+          </ul>
+        </div>
+
+        <!-- Expert Card -->
+        <div class="split-card expert-card reveal reveal-delay-2" id="card-expert">
+          <div class="split-card-header">
+            <div class="split-card-icon">👨‍💻</div>
+            <div>
+              <h3 class="split-card-title">DÀNH CHO CHUYÊN GIA</h3>
+              <p class="split-card-subtitle">Freelancers / Engineers / AI Consultants</p>
+            </div>
+          </div>
+          <ul class="split-card-list">
+            <li><span class="check">▹</span> Tạo profile & portfolio chuyên nghiệp</li>
+            <li><span class="check">▹</span> Publish AI Services trên marketplace</li>
+            <li><span class="check">▹</span> Submit proposals cho jobs phù hợp</li>
+            <li><span class="check">▹</span> Quản lý dự án & deliverables</li>
+            <li><span class="check">▹</span> AI tự động tạo mô tả dịch vụ hấp dẫn</li>
+            <li><span class="check">▹</span> Theo dõi thu nhập & rút tiền</li>
+            <li><span class="check">▹</span> Nhận notification khi có job matching</li>
+            <li><span class="check">▹</span> Tích lũy rating & reviews</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       Architecture Section
+       ============================================ -->
+  <section class="section" id="architecture">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Kiến trúc hệ thống</span>
+        <h2 class="section-title">Cloud-Native <span class="highlight">Scalable Architecture</span></h2>
+        <p class="section-subtitle mx-auto">
+          Kiến trúc microservices trên điện toán đám mây, sẵn sàng mở rộng cho hàng triệu người dùng
+        </p>
+      </div>
+
+      <div class="arch-visual reveal" id="arch-diagram">
+        <div class="arch-layers">
+          <!-- Frontend Layer -->
+          <div class="arch-layer">
+            <span class="arch-layer-label">FRONTEND</span>
+            <div class="arch-layer-items">
+              <span class="arch-item">React.js</span>
+              <span class="arch-item">Next.js</span>
+              <span class="arch-item">TypeScript</span>
+              <span class="arch-item">TailwindCSS</span>
+              <span class="arch-item">WebSocket</span>
+            </div>
+          </div>
+
+          <!-- API Gateway -->
+          <div class="arch-layer">
+            <span class="arch-layer-label">API GATEWAY</span>
+            <div class="arch-layer-items">
+              <span class="arch-item">Kong / AWS API GW</span>
+              <span class="arch-item">Auth0 / JWT</span>
+              <span class="arch-item">Rate Limiting</span>
+              <span class="arch-item">Load Balancer</span>
+            </div>
+          </div>
+
+          <!-- Microservices -->
+          <div class="arch-layer">
+            <span class="arch-layer-label">SERVICES</span>
+            <div class="arch-layer-items">
+              <span class="arch-item">User Service</span>
+              <span class="arch-item">Job Service</span>
+              <span class="arch-item">Payment Service</span>
+              <span class="arch-item">Chat Service</span>
+              <span class="arch-item">AI Module Service</span>
+              <span class="arch-item">Notification Service</span>
+            </div>
+          </div>
+
+          <!-- AI Layer -->
+          <div class="arch-layer">
+            <span class="arch-layer-label">AI ENGINE</span>
+            <div class="arch-layer-items">
+              <span class="arch-item">GPT-4 / Claude</span>
+              <span class="arch-item">TensorFlow</span>
+              <span class="arch-item">LangChain</span>
+              <span class="arch-item">Vector DB</span>
+              <span class="arch-item">RAG Pipeline</span>
+            </div>
+          </div>
+
+          <!-- Infrastructure -->
+          <div class="arch-layer">
+            <span class="arch-layer-label">INFRA</span>
+            <div class="arch-layer-items">
+              <span class="arch-item">AWS / GCP</span>
+              <span class="arch-item">Kubernetes</span>
+              <span class="arch-item">Docker</span>
+              <span class="arch-item">PostgreSQL</span>
+              <span class="arch-item">Redis</span>
+              <span class="arch-item">Elasticsearch</span>
+              <span class="arch-item">Kafka</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       Stats Section
+       ============================================ -->
+  <section class="section" id="stats">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-label">Con số ấn tượng</span>
+        <h2 class="section-title">Nền Tảng AI <span class="highlight">Đáng Tin Cậy</span></h2>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card" id="stat-experts">
+          <div class="stat-value" data-count="2500" data-suffix="+">0</div>
+          <div class="stat-label">Chuyên gia AI</div>
+        </div>
+        <div class="stat-card" id="stat-projects">
+          <div class="stat-value" data-count="5200" data-suffix="+">0</div>
+          <div class="stat-label">Dự án hoàn thành</div>
+        </div>
+        <div class="stat-card" id="stat-satisfaction">
+          <div class="stat-value" data-count="98" data-suffix="%">0</div>
+          <div class="stat-label">Tỷ lệ hài lòng</div>
+        </div>
+        <div class="stat-card" id="stat-revenue">
+          <div class="stat-value" data-count="150" data-prefix="$" data-suffix="M+">0</div>
+          <div class="stat-label">Giao dịch</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CTA Section
+       ============================================ -->
+  <section class="section cta-section" id="cta">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2 class="cta-title">
+          Sẵn Sàng <span class="highlight">Tự Động Hóa</span><br>
+          Doanh Nghiệp Của Bạn?
+        </h2>
+        <p class="cta-desc">
+          Tham gia cùng hàng nghìn doanh nghiệp đã tin tưởng AI Tasker để kết nối 
+          với chuyên gia AI hàng đầu và tối ưu hóa quy trình làm việc.
+        </p>
+        <div class="cta-actions">
+          <a href="#" class="btn btn-primary btn-large btn-glow" id="cta-enterprise"><span>ĐĂNG KÝ DOANH NGHIỆP</span></a>
+          <a href="#" class="btn btn-outline btn-large" id="cta-expert"><span>TRỞ THÀNH CHUYÊN GIA</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       Footer
+       ============================================ -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <div class="logo-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" style="position:relative;z-index:1">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="#00f0ff" stroke-width="2" fill="none"/>
+                <path d="M2 17L12 22L22 17" stroke="#b026ff" stroke-width="2" fill="none"/>
+                <path d="M2 12L12 17L22 12" stroke="#00f0ff" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+            <span class="logo-text">AI TASKER</span>
+          </a>
+          <p>
+            Nền tảng AI marketplace hàng đầu Việt Nam. Kết nối chuyên gia AI 
+            với doanh nghiệp cần tự động hóa quy trình làm việc.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social" aria-label="GitHub">⌘</a>
+            <a href="#" class="footer-social" aria-label="LinkedIn">in</a>
+            <a href="#" class="footer-social" aria-label="Twitter">𝕏</a>
+            <a href="#" class="footer-social" aria-label="Discord">◈</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>NỀN TẢNG</h4>
+          <ul>
+            <li><a href="#">Marketplace</a></li>
+            <li><a href="#">AI Modules</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">API Docs</a></li>
+            <li><a href="#">Status</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>DOANH NGHIỆP</h4>
+          <ul>
+            <li><a href="#">Đăng Dự Án</a></li>
+            <li><a href="#">Tìm Chuyên Gia</a></li>
+            <li><a href="#">Enterprise Plan</a></li>
+            <li><a href="#">Case Studies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>HỖ TRỢ</h4>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Liên Hệ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 AI Tasker. Built with ❤ in Vietnam.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>

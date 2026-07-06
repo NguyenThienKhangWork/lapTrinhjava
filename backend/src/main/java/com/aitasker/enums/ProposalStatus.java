@@ -1,6 +1,6 @@
 package com.aitasker.enums;
 
-public class ProposalStatus {
+public enum ProposalStatus {
     PENDING,
     ACCEPTED,
     REJECTED

@@ -23,34 +23,35 @@ public class ChatController {
 
     @MessageMapping("/chat/{projectId}")
     public void sendMessage(@DestinationVariable Long projectId,
-            @Payload MessageRequest request,
-            Principal principal) {
+                            @Payload MessageRequest request,
+                            Principal principal) {
         String email = (principal != null) ? principal.getName() : request.getSenderEmail();
         MessageResponse response = messageService.saveMessage(projectId, email, request);
 
-        // bắn tin nhắn cho mọi người trong phòng chat (real-time)
+        // Broadcast to all subscribers of the project's chat topic
         messagingTemplate.convertAndSend("/topic/project/" + projectId, response);
     }
 
     @PostMapping("/api/messages/{projectId}")
     public ResponseEntity<MessageResponse> postMessage(@PathVariable Long projectId,
-            @RequestBody MessageRequest request,
-            Principal principal) {
+                                                       @RequestBody MessageRequest request,
+                                                       Principal principal) {
         String email = (principal != null) ? principal.getName() : request.getSenderEmail();
         MessageResponse response = messageService.saveMessage(projectId, email, request);
-
+        
+        // Broadcast via WebSocket topic to notify active real-time listeners
         try {
-            // bắn tin nhắn qua WebSocket
             messagingTemplate.convertAndSend("/topic/project/" + projectId, response);
         } catch (Exception e) {
-            // bỏ qua lỗi WebSocket để không làm tạch API
+            // Log & ignore broker broadcast failures if any
         }
+        
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/api/messages/{projectId}")
     public ResponseEntity<List<MessageResponse>> getMessagesByProject(@PathVariable Long projectId,
-            Principal principal) {
+                                                                      Principal principal) {
         List<MessageResponse> response = messageService.getMessagesByProject(projectId, principal.getName());
         return ResponseEntity.ok(response);
     }

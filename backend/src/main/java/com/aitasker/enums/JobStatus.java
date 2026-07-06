@@ -1,6 +1,6 @@
 package com.aitasker.enums;
 
-public class JobStatus {
+public enum JobStatus {
     OPEN,
     IN_PROGRESS,
     COMPLETED,

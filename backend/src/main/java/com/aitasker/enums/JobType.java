@@ -1,6 +1,6 @@
 package com.aitasker.enums;
 
-public class JobType {
-    FIXED,
-    HOURLY
+public enum JobType {
+    PROJECT,
+    SERVICE
 }

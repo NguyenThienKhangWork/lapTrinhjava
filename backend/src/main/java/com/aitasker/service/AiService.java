@@ -30,12 +30,11 @@ public class AiService {
     private final UserRepository userRepository;
     private final JobPostRepository jobPostRepository;
 
-    @Value("${google.gemini.api-key}")
-    private String geminiApiKey;
+    @Value("${openrouter.api-key}")
+    private String openrouterApiKey;
 
-    // Use gemini-2.5-flash (free tier, 10 RPM)
-    private static final String GEMINI_URL =
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
+    // Use OpenRouter with gpt-3.5-turbo
+    private static final String OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions";
 
     // ═══════════════════════════════════════════════════════════
     //  1. AI JOB ASSISTANT
@@ -125,13 +124,13 @@ public class AiService {
         try {
             log.info("[AI Chatbox] User: {}", userMessage);
 
-            // Build multi-turn conversation for Gemini
-            List<Map<String, Object>> contents = new ArrayList<>();
+            // Build multi-turn conversation for OpenRouter (OpenAI format)
+            List<Map<String, Object>> messages = new ArrayList<>();
 
-            // System context as first user turn (Gemini doesn't have system role)
-            Map<String, Object> systemTurn = new HashMap<>();
-            systemTurn.put("role", "user");
-            systemTurn.put("parts", List.of(Map.of("text",
+            // System message
+            Map<String, Object> systemMsg = new HashMap<>();
+            systemMsg.put("role", "system");
+            systemMsg.put("content",
                 "Bạn là trợ lý AI chăm sóc khách hàng của nền tảng AI Tasker - sàn giao dịch freelance AI tại Việt Nam.\n"
                 + "Nhiệm vụ: Hỗ trợ người dùng 24/7, trả lời bằng tiếng Việt, ngắn gọn, thân thiện.\n\n"
                 + "THÔNG TIN NỀN TẢNG AI TASKER:\n"
@@ -145,55 +144,38 @@ public class AiService {
                 + "1. Đăng ký tài khoản (CLIENT hoặc EXPERT)\n"
                 + "2. Client: Đăng job → nhận proposal → chấp nhận → tạo project → milestone → escrow\n"
                 + "3. Expert: Browse jobs → nộp proposal HOẶC đăng dịch vụ lên marketplace\n"
-                + "4. Thanh toán qua hệ thống ký quỹ, giải ngân khi milestone được duyệt\n\n"
-                + "Hãy trả lời câu hỏi sau đây của người dùng:"
-            )));
-            contents.add(systemTurn);
-
-            // Add model acknowledgment
-            Map<String, Object> ackTurn = new HashMap<>();
-            ackTurn.put("role", "model");
-            ackTurn.put("parts", List.of(Map.of("text", "Tôi hiểu. Tôi là trợ lý AI Tasker, sẵn sàng hỗ trợ bạn!")));
-            contents.add(ackTurn);
+                + "4. Thanh toán qua hệ thống ký quỹ, giải ngân khi milestone được duyệt"
+            );
+            messages.add(systemMsg);
 
             // Add conversation history
             for (Map<String, String> msg : history) {
-                String role = "user".equals(msg.get("role")) ? "user" : "model";
                 Map<String, Object> turn = new HashMap<>();
-                turn.put("role", role);
-                turn.put("parts", List.of(Map.of("text", msg.getOrDefault("content", ""))));
-                contents.add(turn);
+                turn.put("role", msg.get("role"));
+                turn.put("content", msg.getOrDefault("content", ""));
+                messages.add(turn);
             }
 
             // Add current user message
-            Map<String, Object> userTurn = new HashMap<>();
-            userTurn.put("role", "user");
-            userTurn.put("parts", List.of(Map.of("text", userMessage)));
-            contents.add(userTurn);
+            Map<String, Object> userMsg = new HashMap<>();
+            userMsg.put("role", "user");
+            userMsg.put("content", userMessage);
+            messages.add(userMsg);
 
-            // Build request
-            Map<String, Object> thinkingConfig = Map.of("thinkingBudget", 0);
-            Map<String, Object> generationConfig = Map.of(
-                "thinkingConfig", thinkingConfig,
-                "maxOutputTokens", 512
-            );
+            // Build request for OpenRouter
             Map<String, Object> requestBody = new HashMap<>();
-            requestBody.put("contents", contents);
-            requestBody.put("generationConfig", generationConfig);
+            requestBody.put("model", "openai/gpt-3.5-turbo");
+            requestBody.put("messages", messages);
+            requestBody.put("max_tokens", 512);
 
-            String url = GEMINI_URL + "?key=" + geminiApiKey;
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-            String response = restTemplate.postForObject(url, new HttpEntity<>(requestBody, headers), String.class);
+            headers.set("Authorization", "Bearer " + openrouterApiKey);
+
+            String response = restTemplate.postForObject(OPENROUTER_URL, new HttpEntity<>(requestBody, headers), String.class);
 
             JsonNode root = objectMapper.readTree(response);
-            String reply = root.at("/candidates/0/content/parts/0/text").asText("").trim();
-
-            // Strip any leftover thinking tags
-            if (reply.contains("<thinking>")) {
-                int end = reply.indexOf("</thinking>");
-                if (end != -1) reply = reply.substring(end + 10).trim();
-            }
+            String reply = root.at("/choices/0/message/content").asText("").trim();
 
             log.info("[AI Chatbox] Reply length: {} chars", reply.length());
             return reply.isEmpty() ? "Xin lỗi, tôi chưa hiểu câu hỏi của bạn. Bạn có thể hỏi lại không?" : reply;
@@ -205,29 +187,29 @@ public class AiService {
     }
 
     // ═══════════════════════════════════════════════════════════
-    //  GEMINI API CALLER
+    //  OPENROUTER API CALLER
     // ═══════════════════════════════════════════════════════════
     private String callGemini(String prompt) throws Exception {
-        String url = GEMINI_URL + "?key=" + geminiApiKey;
-
-        Map<String, Object> part = Map.of("text", prompt);
-        Map<String, Object> content = Map.of("parts", List.of(part));
-        // thinkingBudget=0 disables reasoning → much faster responses
-        Map<String, Object> thinkingConfig = Map.of("thinkingBudget", 0);
-        Map<String, Object> generationConfig = Map.of("thinkingConfig", thinkingConfig);
+        // Build OpenAI-compatible request
+        Map<String, Object> userMessage = Map.of(
+            "role", "user",
+            "content", prompt
+        );
         Map<String, Object> body = Map.of(
-            "contents", List.of(content),
-            "generationConfig", generationConfig
+            "model", "openai/gpt-3.5-turbo",
+            "messages", List.of(userMessage),
+            "max_tokens", 1000
         );
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
+        headers.set("Authorization", "Bearer " + openrouterApiKey);
 
-        String response = restTemplate.postForObject(url, new HttpEntity<>(body, headers), String.class);
-        log.debug("[Gemini] Raw response: {}", response);
+        String response = restTemplate.postForObject(OPENROUTER_URL, new HttpEntity<>(body, headers), String.class);
+        log.debug("[OpenRouter] Raw response: {}", response);
 
         JsonNode root = objectMapper.readTree(response);
-        return root.at("/candidates/0/content/parts/0/text").asText("");
+        return root.at("/choices/0/message/content").asText("");
     }
 
     // ─── Strip markdown code fences if Gemini wraps JSON in ```json ``` ───
