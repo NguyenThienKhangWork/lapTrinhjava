@@ -7,5 +7,10 @@ export default defineConfig({
   define: {
     // Provide polyfill for global object used by stompjs/sockjs
     global: 'window',
-  }
+  },
+  build: {
+    rolldownOptions: {
+      external: ['net', 'tls', 'websocket'],
+    },
+  },
 })
