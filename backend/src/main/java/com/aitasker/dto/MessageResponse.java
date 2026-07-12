@@ -1,6 +1,5 @@
 package com.aitasker.dto;
 
-import com.aitasker.entity.Message;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,17 +20,13 @@ public class MessageResponse {
     private Boolean isRead;
     private LocalDateTime createdAt;
 
-    // chuyển đổi từ Entity sang DTO
-    public static MessageResponse fromEntity(Message message) {
-        if (message == null)
-            return null;
-
+    public static MessageResponse fromEntity(com.aitasker.entity.Message message) {
+        if (message == null) return null;
         return MessageResponse.builder()
                 .id(message.getId())
-                // check null để tránh sập server
-                .projectId(message.getProject() != null ? message.getProject().getId() : null)
-                .senderId(message.getSender() != null ? message.getSender().getId() : null)
-                .senderName(message.getSender() != null ? message.getSender().getFullName() : null)
+                .projectId(message.getProject().getId())
+                .senderId(message.getSender().getId())
+                .senderName(message.getSender().getFullName())
                 .content(message.getContent())
                 .isRead(message.getIsRead())
                 .createdAt(message.getCreatedAt())

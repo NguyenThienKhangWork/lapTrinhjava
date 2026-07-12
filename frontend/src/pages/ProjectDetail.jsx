@@ -91,7 +91,8 @@ export default function ProjectDetail() {
       const SockJS = (await import('sockjs-client')).default;
       const Stomp = (await import('stompjs')).default;
 
-      const socket = new SockJS('http://localhost:8080/ws');
+      const wsUrl = import.meta.env.VITE_WS_URL || 'http://localhost:8080/ws';
+      const socket = new SockJS(wsUrl);
       stompClient.current = Stomp.over(socket);
       stompClient.current.debug = null;
 

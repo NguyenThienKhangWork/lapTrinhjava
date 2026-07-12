@@ -37,9 +37,9 @@ public class UserDTO {
                 .skills(user.getSkills())
                 .certifications(user.getCertifications())
                 .portfolio(user.getPortfolio())
-                .balance(user.getBalance() != null ? user.getBalance() : 0.0)
+                .balance(user.getBalance())
                 .hourlyRate(user.getHourlyRate())
-                .rating(user.getRating() != null ? user.getRating() : 0.0)
+                .rating(user.getRating())
                 .isLocked(user.getIsLocked() != null ? user.getIsLocked() : false)
                 .build();
     }
