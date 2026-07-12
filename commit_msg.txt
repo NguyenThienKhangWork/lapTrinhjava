@@ -1,6 +1,0 @@
-feat(auth): add User entity with JPA annotations
-
-- Add User entity with fields: id, email, password, fullName, role, avatar, bio
-- Add UserRole enum with CLIENT, EXPERT, ADMIN values
-- Configure @PrePersist for auto-set createdAt, updatedAt, default values
-- Add @Builder, @Data, @NoArgsConstructor, @AllArgsConstructor via Lombok
