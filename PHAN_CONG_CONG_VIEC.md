@@ -62,7 +62,7 @@ AlTasker/
 
 ---
 
-### 👤 Developer 1: Xác Thực, Phân Quyền, Quản Lý Thành Viên & Landing Page
+### 👤 Developer 1: Khang Nguyễn Thiên, Xác Thực, Phân Quyền, Quản Lý Thành Viên & Landing Page
 >
 > **Vai trò:** Xây dựng "cửa ngõ" bảo mật của hệ thống và trang giới thiệu ban đầu. Đảm bảo luồng đăng nhập/đăng ký và phân quyền API chạy ổn định.
 
@@ -85,7 +85,7 @@ AlTasker/
 
 ---
 
-### 👤 Developer 2: Quản Lý Đăng Việc & Đề Xuất Báo Giá (Job Posts & Proposals)
+### 👤 Developer 2: Vũ Mai Vũ Đại, Quản Lý Đăng Việc & Đề Xuất Báo Giá (Job Posts & Proposals)
 >
 > **Vai trò:** Xây dựng phần cốt lõi của thị trường việc làm - nơi Client đăng nhu cầu tuyển dụng và Expert gửi đề xuất ứng tuyển kèm giá cả.
 
@@ -105,7 +105,7 @@ AlTasker/
 
 ---
 
-### 👤 Developer 3: Quản Lý Dự Án & Các Cột Mốc Tiến Độ (Projects & Milestones)
+### 👤 Developer 3: Trịnh Ngân Giang,  Quản Lý Dự Án & Các Cột Mốc Tiến Độ (Projects & Milestones)
 >
 > **Vai trò:** Theo dõi vòng đời thực thi công việc sau khi đã chốt hợp đồng. Chia nhỏ dự án thành các giai đoạn để quản lý chất lượng và kiểm soát rủi ro.
 
@@ -124,7 +124,7 @@ AlTasker/
 
 ---
 
-### 👤 Developer 4: Hệ Thống Giao Dịch, Ký Quỹ & Rút Tiền (Payments, Escrow & Withdrawals)
+### 👤 Developer 4: Nguyễn Trí Quý, Hệ Thống Giao Dịch, Ký Quỹ & Rút Tiền (Payments, Escrow & Withdrawals)
 >
 > **Vai trò:** Quản lý toàn bộ dòng tiền của hệ thống. Đảm bảo an toàn giao dịch bằng mô hình ký quỹ (Escrow) và xử lý yêu cầu rút tiền của Expert về ngân hàng.
 
@@ -145,7 +145,7 @@ AlTasker/
 
 ---
 
-### 👤 Developer 5: Tích Hợp Trí Tuệ Nhân Tạo & Gợi Ý Thông Minh (AI Co-pilot & Recommendation)
+### 👤 Developer 5: huynhnhatkhanhdtkt, Tích Hợp Trí Tuệ Nhân Tạo & Gợi Ý Thông Minh (AI Co-pilot & Recommendation)
 >
 > **Vai trò:** Trái tim công nghệ của ứng dụng. Tận dụng Gemini API để xây dựng các trợ lý thông minh giúp chuẩn hóa dữ liệu và ghép nối cơ hội việc làm tối ưu.
 
@@ -166,7 +166,7 @@ AlTasker/
 
 ---
 
-### 👤 Developer 6: Gói Dịch Vụ Sẵn Có & Hệ Thống Đánh Giá (Services Marketplace & Reviews)
+### 👤 Developer 6:nhanbq,  Gói Dịch Vụ Sẵn Có & Hệ Thống Đánh Giá (Services Marketplace & Reviews)
 >
 > **Vai trò:** Xây dựng tính năng cho phép Expert "bày bán" các gói dịch vụ AI đóng gói sẵn (như sinh chatbot, tối ưu mô hình) và hệ thống chấm điểm tín nhiệm (Review/Rating).
 
@@ -187,7 +187,7 @@ AlTasker/
 
 ---
 
-### 👤 Developer 7: Trò Chuyện Realtime, Thông Báo & Quản Trị Tranh Chấp (WebSocket Chat, Notifications & Admin)
+### 👤 Developer 7: Nguyễn Duy Tân, Trò Chuyện Realtime, Thông Báo & Quản Trị Tranh Chấp (WebSocket Chat, Notifications & Admin)
 >
 > **Vai trò:** Cung cấp kênh giao tiếp thời gian thực, điều phối hoạt động tương tác và quản lý vận hành của Admin (xử lý tranh chấp, rút tiền).
 
